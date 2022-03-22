@@ -1,0 +1,23 @@
+# COMMENTS can be included in this paremeter file by preceding the line with `#`.
+
+--rootdir    .
+--input_list    input.lst
+--lcdir    test_data
+--lcsuffix_in    _xmatch.dat
+--lcsuffix_out    .dat
+
+# The indices of columns to be read in from the light curve files (must match the list passed by the `colnames` par.):
+--usecols    0 1 2 3 4 5 6 7 9 11 20 21 22 23 24 25 26 27 28 29 35 36 38
+
+# The names of the input columns in the light curve files (must match the expression passed by the `subset` parameter):
+--colnames    obsid tile filter chip expnum mjd hjd separ esoclass
+              zperrcasu mag1 magerr1 mag2 magerr2 mag3 magerr3 mag4
+              magerr4 mag5 magerr5 psfclass ellipticity confidence
+
+# The list of apertures to be considered:
+--apertures    1 2 3 4 5
+
+# This is merely an example, these criteria should not necessarily be enforced:
+--subset    filter=="Ks" and separ<=0.9 and psfclass>=-2 and ellipticity<=0.5 and confidence>=60
+
+--verbose
