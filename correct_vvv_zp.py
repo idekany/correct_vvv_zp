@@ -18,15 +18,6 @@ pars = ut.process_input_parameters(pars)
 sep = '\s+'         # separator character in the light curve files ('\s+' is any number of whitespaces)
 comment = '#'       # comment character in the light curve files
 
-# colname_mjd = 'mjd'
-# colname_tile = 'tile'
-# colname_obsid = 'obsid'
-# colname_chip = 'chip'
-# colname_pawid = 'ipaw'
-# colname_obstime = 'hjd'
-# colname_mag = 'mag'
-# colname_magerr = 'magerr'
-
 zpcorr_table = np.load(os.path.join(pars.rootdir, pars.input_table), encoding='bytes')
 
 ids = np.genfromtxt(pars.input_list, dtype=None, unpack=False, comments='#', filling_values=np.nan, encoding='latin1')
@@ -48,7 +39,7 @@ for ilc, objname in enumerate(ids):
         tile = lcdatain[pars.colname_tile].to_numpy().astype(bytes)
         obsid = lcdatain[pars.colname_obsid].to_numpy().astype(bytes)
         ichip = lcdatain[pars.colname_chip].to_numpy()
-        expnum = lcdatain[pars.colname_pawid].to_numpy()
+        expnum = lcdatain[pars.colname_expnum].to_numpy()
 
         otime = lcdatain[pars.colname_obstime].to_numpy()
         mag = lcdatain[pars.colname_mag + str(iap)].to_numpy()
